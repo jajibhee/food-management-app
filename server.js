@@ -1,6 +1,12 @@
 const express = require("express");
+const connectDB = require("./config/db");
 
 const app = express();
+
+connectDB();
+
+//initialize middleware to accept body data
+app.use(express.json({ extended: false }));
 
 app.get("/", (req, res) => {
   res.send({ message: "Welcome here ooo !" });
